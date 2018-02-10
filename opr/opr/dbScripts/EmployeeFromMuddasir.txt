@@ -1,0 +1,189 @@
+﻿CREATE TABLE [dbo].[Employee] (
+    [Id]                    INT           IDENTITY (1, 1) NOT NULL,
+    [Emp_Full_Name]         VARCHAR (30)  NULL,
+    [Emp_Father_Name]       VARCHAR (30)  NULL,
+    [Emp_Dob]               VARCHAR (20)  NULL,
+    [Emp_Gender]            VARCHAR (10)  NULL,
+    [Emp_Contact]           VARCHAR (20)  NULL,
+    [Emp_Temporary_Address] VARCHAR (250) NULL,
+    [Emp_Permanent_Address] VARCHAR (250) NULL,
+    [Emp_Marital_Status]    VARCHAR (20)  NULL,
+    [Emp_CNIC ]             VARCHAR (20)  NULL,
+    [Emp_Citizenship]       VARCHAR (20)  NULL,
+    [Emp_Blood_Group]       VARCHAR (10)  NULL,
+    [Emp_Emergency_Id]      INT           NULL,
+    [Emp_Edu_Id]            INT           NULL,
+    [Emp_Jobs_Id]           INT           NULL,
+    [IsDelete ]             BIT           NULL,
+    [IsActive]              BIT           NULL,
+    [UserId]                VARCHAR (128) NULL,
+    [EntryDate]             DATE          NULL,
+    [ModifiedBy]            VARCHAR (128) NULL,
+    [ModifiedDate]          DATE          NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Employee_ToEducation] FOREIGN KEY ([Emp_Edu_Id]) REFERENCES [dbo].[Emp_Education] ([Id]),
+    CONSTRAINT [FK_Employee_ToJob] FOREIGN KEY ([Emp_Jobs_Id]) REFERENCES [dbo].[Emp_Job] ([Id]),
+    CONSTRAINT [FK_Employee_ToEmergency] FOREIGN KEY ([Emp_Emergency_Id]) REFERENCES [dbo].[Emp_Emergency] ([Id])
+);
+
+CREATE TABLE [dbo].[Category] (
+    [Id]           INT           IDENTITY (1, 1) NOT NULL,
+    [IsDelete ]    BIT           NULL,
+    [IsActive]     BIT           NULL,
+    [UserId]       VARCHAR (128) NULL,
+    [EntryDate]    DATE          NULL,
+    [ModifiedBy]   VARCHAR (128) NULL,
+    [ModifiedDate] DATE          NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+
+
+CREATE TABLE [dbo].[Emp_Education_Info ] (
+    [Id]                                      INT            NOT NULL,
+    [Emp_Education_DegreeCertificate]         VARCHAR (20)   NULL,
+    [Emp_Edu_BoardUniversity   ]              VARCHAR (50)   NULL,
+    [Emp_Edu_Roll_No            ]             VARCHAR (50)   NULL,
+    [Emp_Edu_PassYear                       ] DATE           NULL,
+    [Emp_Edu_Grade]                           VARCHAR (30)   NULL,
+    [IsDelete]                                BIT            NULL,
+    [IsActive]                                BIT            NULL,
+    [UserId ]                                 NVARCHAR (128) NULL,
+    [EntryDate]                               DATE           NULL,
+    [ModifiedBy]                              NVARCHAR (128) NULL,
+    [ModifiedDate]                            DATE           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[Designation]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Emp_Designation] VARCHAR(50) NULL,
+	 [IsDelete ]             BIT           NULL,
+    [IsActive]              BIT           NULL,
+    [UserId]                VARCHAR (128) NULL,
+    [EntryDate]             DATE          NULL,
+    [ModifiedBy]            VARCHAR (128) NULL,
+    [ModifiedDate]          DATE          NULL
+	
+)
+
+CREATE TABLE [dbo].[Emp_Basic_Pay] (
+    [Id]                         INT            IDENTITY (1, 1) NOT NULL,
+    [Emp_Salary_BasicPay]        MONEY          NULL,
+    [Emp_Salary_House_Allowance] MONEY          NULL,
+    [Emp_Salary_Medical]         MONEY          NULL,
+    [Emp_Salary_Bonus]           MONEY          NULL,
+    [Emp_Salary_Paydate]         DATE           NULL,
+    [IsDelete ]                  BIT            NULL,
+    [IsActive]                   BIT            NULL,
+    [UserId]                     NVARCHAR (128) NULL,
+    [EntryDate]                  DATE           NULL,
+    [ModifiedBy]                 NVARCHAR (128) NULL,
+    [ModifiedDate]               DATE           NULL,
+    [Emp_Salary_PayType]         VARCHAR (20)   NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[Emp_BPS] (
+    [Id]           INT           IDENTITY (1, 1) NOT NULL,
+    [Emp_Id]       INT           NULL,
+    [Emp_BPS_Id]   INT           NULL,
+    [IsDelete ]    BIT           NULL,
+    [IsActive]     BIT           NULL,
+    [UserId]       VARCHAR (128) NULL,
+    [EntryDate]    DATE          NULL,
+    [ModifiedBy]   VARCHAR (128) NULL,
+    [ModifiedDate] DATE          NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Emp_BPS_ToEmployee] FOREIGN KEY ([Emp_Id]) REFERENCES [dbo].[Employee] ([Id]),
+    CONSTRAINT [FK_Emp_BPS_ToBasicPay] FOREIGN KEY ([Emp_BPS_Id]) REFERENCES [dbo].[Emp_Basic_Pay] ([Id])
+);
+
+CREATE TABLE [dbo].[Emp_Category] (
+    [Id]           INT           IDENTITY (1, 1) NOT NULL,
+    [IsDelete ]    BIT           NULL,
+    [IsActive]     BIT           NULL,
+    [UserId]       VARCHAR (128) NULL,
+    [EntryDate]    DATE          NULL,
+    [ModifiedBy]   VARCHAR (128) NULL,
+    [ModifiedDate] DATE          NULL,
+    [Emp_Id]       INT           NULL,
+    [Category_Id]  INT           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Emp_Category_ToEmployee] FOREIGN KEY ([Emp_Id]) REFERENCES [dbo].[Employee] ([Id]),
+    CONSTRAINT [FK_Emp_Category_ToCategory] FOREIGN KEY ([Category_Id]) REFERENCES [dbo].[Category] ([Id])
+);
+
+CREATE TABLE [dbo].[Emp_Designation] (
+    [Id]             INT           IDENTITY (1, 1) NOT NULL,
+    [Emp_Id]         INT           NULL,
+    [Designation_Id] INT           NULL,
+    [IsDelete ]      BIT           NULL,
+    [IsActive]       BIT           NULL,
+    [UserId]         VARCHAR (128) NULL,
+    [EntryDate]      DATE          NULL,
+    [ModifiedBy]     VARCHAR (128) NULL,
+    [ModifiedDate]   DATE          NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Emp_Designation_ToEmployee] FOREIGN KEY ([Emp_Id]) REFERENCES [dbo].[Employee] ([Id]),
+    CONSTRAINT [FK_Emp_Designation_ToDesignation] FOREIGN KEY ([Designation_Id]) REFERENCES [dbo].[Designation] ([Id])
+);
+
+CREATE TABLE [dbo].[Subject] (
+    [Id]                  INT            IDENTITY (1, 1) NOT NULL,
+    [Subject_Name]        VARCHAR (50)   NULL,
+    [IsDelete ]           BIT            NULL,
+    [IsActive]            BIT            NULL,
+    [UserId]              NVARCHAR (128) NULL,
+    [EntryDate]           DATE           NULL,
+    [ModifiedBy]          NVARCHAR (128) NULL,
+    [ModifiedDate]        DATE           NULL,
+    [Subject_Description] VARCHAR (MAX)  NULL,
+    [Publisher_Id]        INT            NULL,
+    [Author_Id]           INT            NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Subject_ToPublisher] FOREIGN KEY ([Publisher_Id]) REFERENCES [dbo].[Publisher] ([Id]),
+    CONSTRAINT [FK_Subject_ToAuthor] FOREIGN KEY ([Author_Id]) REFERENCES [dbo].[Author] ([Id])
+);
+
+
+
+
+CREATE TABLE [dbo].[Author] (
+    [Id]             INT            IDENTITY (1, 1) NOT NULL,
+    [Author_Name]    VARCHAR (50)   NULL,
+    [Author_Contact] VARCHAR (50)   NULL,
+    [Author_Email]   VARCHAR (50)   NULL,
+    [Author_Address] VARCHAR (MAX)  NULL,
+    [IsDelete ]      BIT            NULL,
+    [IsActive]       BIT            NULL,
+    [UserId]         NVARCHAR (128) NULL,
+    [EntryDate]      DATE           NULL,
+    [ModifiedBy]     NVARCHAR (128) NULL,
+    [ModifiedDate]   DATE           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[Publisher] (
+    [Id]                    INT            IDENTITY (1, 1) NOT NULL,
+    [Publisher_name]        VARCHAR (50)   NULL,
+    [Publisher_Contact]     VARCHAR (50)   NULL,
+    [Publisher_FullAddress] VARCHAR (MAX)  NULL,
+    [Publisher_Email]       VARCHAR (50)   NULL,
+    [Publisher_Reg]         VARCHAR (50)   NULL,
+    [IsDelete ]             BIT            NULL,
+    [IsActive]              BIT            NULL,
+    [UserId]                NVARCHAR (128) NULL,
+    [EntryDate]             DATE           NULL,
+    [ModifiedBy]            NVARCHAR (128) NULL,
+    [ModifiedDate]          DATE           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+

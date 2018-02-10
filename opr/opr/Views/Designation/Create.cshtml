@@ -1,0 +1,18 @@
+﻿@model opr.Models.Designation
+@{
+    ViewBag.Title = "Create";
+    
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+<form>
+    <fieldset>
+        Employee Designation
+        @Html.TextBoxFor(t => t.Emp_Designation, new { required = "required", @class = "form-control" })
+        @Html.TextBoxFor(t => t.EntryDate, new { @class = "form-control", @Value = DateTime.Now.ToString("dd-mm-yyyy") })
+        <input type="submit" value="Save" />
+    </fieldset>
+</form>
+}

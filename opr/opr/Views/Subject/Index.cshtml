@@ -1,0 +1,56 @@
+﻿@model List<opr.Models.Subject>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Subject Page</h2>
+@Html.ActionLink("Add New Subject", "Create", "Subject")
+<div class="container table-responsive">
+    <h2>  Subject Detail </h2>
+    <p>The detail view of the subject </p>
+    <div class="row">
+        <div class="panel">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Subject Name</th>
+                        <th>Description</th>
+                        <th>User ID</th>
+                       
+                        <th>Is Active</th>
+                        <th>Entry Date</th>
+                        <th>Modified By</th>
+                        <th>Modified Date</th>
+                        <th>Edit / Delete</th>
+                    </tr>
+                </thead>
+
+                @foreach (var data in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@data.Id</td>
+                        <td>@data.Subject_Name</td>
+                        <td>@data.Subject_Description</td>
+                        <td>@data.UserId</td>
+                       
+                        <td>@data.IsActive</td>
+                        <td>@data.EntryDate</td>
+                        <td>@data.ModifiedBy</td>
+                        <td>@data.ModifiedDate</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Update", new { Id = data.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = data.Id }, new { onclick = "return conform('Are you sure,you want to delete data?.')" })
+                        </td>
+
+                    </tr>
+                </tbody>
+        }
+            </table>
+
+        </div>
+    </div>
+    
+</div>
+@*<p> Date:  @ViewBag.entrydate </p>*@

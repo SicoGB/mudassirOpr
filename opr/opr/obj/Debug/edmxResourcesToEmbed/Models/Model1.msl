@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OprdbModelStoreContainer" CdmEntityContainer="OprEntities">
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="OprdbModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Author_Address" ColumnName="Author_Address" />
+          <ScalarProperty Name="Author_Email" ColumnName="Author_Email" />
+          <ScalarProperty Name="Author_Contact" ColumnName="Author_Contact" />
+          <ScalarProperty Name="Author_Name" ColumnName="Author_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publishers">
+      <EntityTypeMapping TypeName="OprdbModel.Publisher">
+        <MappingFragment StoreEntitySet="Publisher">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Publisher_Reg" ColumnName="Publisher_Reg" />
+          <ScalarProperty Name="Publisher_Email" ColumnName="Publisher_Email" />
+          <ScalarProperty Name="Publisher_FullAddress" ColumnName="Publisher_FullAddress" />
+          <ScalarProperty Name="Publisher_Contact" ColumnName="Publisher_Contact" />
+          <ScalarProperty Name="Publisher_name" ColumnName="Publisher_name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="OprdbModel.Subject">
+        <MappingFragment StoreEntitySet="Subject">
+          <ScalarProperty Name="Author_Id" ColumnName="Author_Id" />
+          <ScalarProperty Name="Publisher_Id" ColumnName="Publisher_Id" />
+          <ScalarProperty Name="Subject_Description" ColumnName="Subject_Description" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Subject_Name" ColumnName="Subject_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Education">
+      <EntityTypeMapping TypeName="OprdbModel.Emp_Education">
+        <MappingFragment StoreEntitySet="Emp_Education">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="Emp_Edu_Grade" ColumnName="Emp_Edu_Grade" />
+          <ScalarProperty Name="Emp_Edu_TotalMarks" ColumnName="Emp_Edu_TotalMarks" />
+          <ScalarProperty Name="Emp_Edu_ObtainMarks" ColumnName="Emp_Edu_ObtainMarks" />
+          <ScalarProperty Name="Emp_Edu_PassYear" ColumnName="Emp_Edu_PassYear" />
+          <ScalarProperty Name="Emp_Edu_Reg" ColumnName="Emp_Edu_Reg" />
+          <ScalarProperty Name="Emp_Edu_BoardUniversity" ColumnName="Emp_Edu_BoardUniversity" />
+          <ScalarProperty Name="Emp_Education_DegreeCertificate" ColumnName="Emp_Education_DegreeCertificate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Emergency">
+      <EntityTypeMapping TypeName="OprdbModel.Emp_Emergency">
+        <MappingFragment StoreEntitySet="Emp_Emergency">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UserId_" ColumnName="UserId " />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Emp_FullAddress_" ColumnName="Emp_FullAddress " />
+          <ScalarProperty Name="Emp_Relationship_Id" ColumnName="Emp_Relationship_Id" />
+          <ScalarProperty Name="Emp_Emergency_Contact" ColumnName="Emp_Emergency_Contact" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Emergency_Contact">
+      <EntityTypeMapping TypeName="OprdbModel.Emp_Emergency_Contact">
+        <MappingFragment StoreEntitySet="Emp_Emergency_Contact">
+          <ScalarProperty Name="Emp_Relationship_Name" ColumnName="Emp_Relationship_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="OprdbModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Emp_Jobs_Id" ColumnName="Emp_Jobs_Id" />
+          <ScalarProperty Name="Emp_Edu_Id" ColumnName="Emp_Edu_Id" />
+          <ScalarProperty Name="Emp_Emergency_Id" ColumnName="Emp_Emergency_Id" />
+          <ScalarProperty Name="Emp_Blood_Group" ColumnName="Emp_Blood_Group" />
+          <ScalarProperty Name="Emp_Citizenship" ColumnName="Emp_Citizenship" />
+          <ScalarProperty Name="Emp_CNIC_" ColumnName="Emp_CNIC " />
+          <ScalarProperty Name="Emp_Marital_Status" ColumnName="Emp_Marital_Status" />
+          <ScalarProperty Name="Emp_Permanent_Address" ColumnName="Emp_Permanent_Address" />
+          <ScalarProperty Name="Emp_Temporary_Address" ColumnName="Emp_Temporary_Address" />
+          <ScalarProperty Name="Emp_Contact" ColumnName="Emp_Contact" />
+          <ScalarProperty Name="Emp_Gender" ColumnName="Emp_Gender" />
+          <ScalarProperty Name="Emp_Dob" ColumnName="Emp_Dob" />
+          <ScalarProperty Name="Emp_Father_Name" ColumnName="Emp_Father_Name" />
+          <ScalarProperty Name="Emp_Full_Name" ColumnName="Emp_Full_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="OprdbModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designations">
+      <EntityTypeMapping TypeName="OprdbModel.Designation">
+        <MappingFragment StoreEntitySet="Designation">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Emp_Designation" ColumnName="Emp_Designation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Basic_Pay">
+      <EntityTypeMapping TypeName="OprdbModel.Emp_Basic_Pay">
+        <MappingFragment StoreEntitySet="Emp_Basic_Pay">
+          <ScalarProperty Name="Emp_Salary_PayType" ColumnName="Emp_Salary_PayType" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Emp_Salary_Paydate" ColumnName="Emp_Salary_Paydate" />
+          <ScalarProperty Name="Emp_Salary_Bonus" ColumnName="Emp_Salary_Bonus" />
+          <ScalarProperty Name="Emp_Salary_Medical" ColumnName="Emp_Salary_Medical" />
+          <ScalarProperty Name="Emp_Salary_House_Allowance" ColumnName="Emp_Salary_House_Allowance" />
+          <ScalarProperty Name="Emp_Salary_BasicPay" ColumnName="Emp_Salary_BasicPay" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_BPS">
+      <EntityTypeMapping TypeName="OprdbModel.Emp_BPS">
+        <MappingFragment StoreEntitySet="Emp_BPS">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Emp_BPS_Id" ColumnName="Emp_BPS_Id" />
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Category">
+      <EntityTypeMapping TypeName="OprdbModel.Emp_Category">
+        <MappingFragment StoreEntitySet="Emp_Category">
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Designation">
+      <EntityTypeMapping TypeName="OprdbModel.Emp_Designation">
+        <MappingFragment StoreEntitySet="Emp_Designation">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+          <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

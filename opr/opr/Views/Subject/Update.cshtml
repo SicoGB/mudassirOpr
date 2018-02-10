@@ -1,0 +1,82 @@
+﻿@model opr.Models.Subject
+    
+@{
+
+                ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            @using (Html.BeginForm())
+    {
+        <p>@Html.ValidationSummary(true)</p>
+
+        <form action="" method="post">
+
+           @Html.HiddenFor(m => m.Id)
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Subject Name:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Subject_Name, new { required = "required", type = "text", @class = "form-control" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Entry Date</label>
+                <div class="col-sm-10">
+
+                    @Html.TextBoxFor(m => m.EntryDate, new { type = "datetime", @class = "form-control" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email"> </label>
+                <div class="col-sm-10">
+                  @*  @Html.TextBoxFor(m => m.ModifiedBy, new { required = "required", type = "text", @class = "form-control" })*@
+                    <input type="hidden" name="ModifiedBy" value="@ViewBag.UserId" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email"> </label>
+                <div class="col-sm-10">
+                  @*  @Html.TextBoxFor(m => m.UserId, new { type = "text", @class = "form-control" })*@
+                    <input type="hidden" name="ModifiedBy" value="@ViewBag.UserId" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email"> </label>
+                <div class="col-sm-10">
+                    @*@Html.TextBoxFor(m => m.ModifiedDate, new { type = "datetime", @class = "form-control" })*@
+                    <input type="hidden" name="ModifiedDate" value="@ViewBag.entrydate" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="pwd">Description:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Subject_Description, new { type = "text", @class = "form-control" })
+
+                </div>
+            </div>
+
+            @*<label>
+                Is Active :True
+                @Html.RadioButtonFor(s => s.IsActive, "1")
+            </label>
+            <label>False: @Html.RadioButtonFor(s => s.IsActive, "0")</label>*@
+
+            <div class="form-group">
+                <div class=" col-sm-2">
+                    <button type="submit" class="btn btn-block">Save Change</button>
+                </div>
+            </div>
+        </form>
+
+}
+        </div>
+    </div>
+</div>
+
+@Html.ActionLink("Go Back", "Index")

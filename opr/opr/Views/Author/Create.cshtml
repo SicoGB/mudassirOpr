@@ -1,0 +1,18 @@
+﻿@model opr.Models.Author
+@{
+    ViewBag.Title = "Create";
+   
+}
+
+<h2>Add New Author</h2>
+using(@Html.BeginForm()){
+<form>
+    <label>Author Name:  @Html.TextBoxFor(m => m.Author_Name, new { required = "required", @class = "form-control" })</label>
+    <label>Contact No:  @Html.TextBoxFor(m => m.Author_Contact, new { required = "required", @class = "form-control" })</label>
+    <label>Email:  @Html.TextBoxFor(m => m.Author_Email, new { required = "required", @class = "form-control" })</label>
+    <label>Full Address:  @Html.TextBoxFor(m => m.Author_Address, new { required = "required", @class = "form-control" })</label>
+    <label>@Html.HiddenFor(m => m.EntryDate, new { })</label>
+    <label>@Html.HiddenFor(m => m.ModifiedDate, new { })</label>
+</form>
+
+}

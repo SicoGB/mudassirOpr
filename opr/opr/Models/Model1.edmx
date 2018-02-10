@@ -1,0 +1,1064 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OprdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Author_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Author_Contact" Type="varchar" MaxLength="50" />
+          <Property Name="Author_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Author_Address" Type="varchar(max)" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+          <Property Name="Category_Name" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Designation" Type="varchar" MaxLength="50" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Emp_Basic_Pay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Salary_BasicPay" Type="money" />
+          <Property Name="Emp_Salary_House_Allowance" Type="money" />
+          <Property Name="Emp_Salary_Medical" Type="money" />
+          <Property Name="Emp_Salary_Bonus" Type="money" />
+          <Property Name="Emp_Salary_Paydate" Type="date" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+          <Property Name="Emp_Salary_PayType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Emp_BPS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Id" Type="int" />
+          <Property Name="Emp_BPS_Id" Type="int" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Emp_Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+          <Property Name="Emp_Id" Type="int" />
+          <Property Name="Category_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Emp_Designation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Id" Type="int" />
+          <Property Name="Designation_Id" Type="int" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Emp_Education">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Education_DegreeCertificate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emp_Edu_BoardUniversity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emp_Edu_Reg" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Emp_Edu_PassYear" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Emp_Edu_ObtainMarks" Type="int" Nullable="false" />
+          <Property Name="Emp_Edu_TotalMarks" Type="int" Nullable="false" />
+          <Property Name="Emp_Edu_Grade" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Emp_Emergency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Emergency_Contact" Type="varchar" MaxLength="50" />
+          <Property Name="Emp_Relationship_Id" Type="int" Nullable="false" />
+          <Property Name="Emp_FullAddress " Type="varchar" MaxLength="250" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId " Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Emp_Emergency_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Relationship_Name" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Full_Name" Type="varchar" MaxLength="30" />
+          <Property Name="Emp_Father_Name" Type="varchar" MaxLength="30" />
+          <Property Name="Emp_Dob" Type="varchar" MaxLength="20" />
+          <Property Name="Emp_Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Emp_Contact" Type="varchar" MaxLength="20" />
+          <Property Name="Emp_Temporary_Address" Type="varchar" MaxLength="250" />
+          <Property Name="Emp_Permanent_Address" Type="varchar" MaxLength="250" />
+          <Property Name="Emp_Marital_Status" Type="varchar" MaxLength="20" />
+          <Property Name="Emp_CNIC " Type="varchar" MaxLength="20" />
+          <Property Name="Emp_Citizenship" Type="varchar" MaxLength="20" />
+          <Property Name="Emp_Blood_Group" Type="varchar" MaxLength="10" />
+          <Property Name="Emp_Emergency_Id" Type="int" />
+          <Property Name="Emp_Edu_Id" Type="int" />
+          <Property Name="Emp_Jobs_Id" Type="int" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Publisher_name" Type="varchar" MaxLength="50" />
+          <Property Name="Publisher_Contact" Type="varchar" MaxLength="50" />
+          <Property Name="Publisher_FullAddress" Type="varchar(max)" />
+          <Property Name="Publisher_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Publisher_Reg" Type="varchar" MaxLength="50" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject_Name" Type="varchar" MaxLength="50" />
+          <Property Name="IsDelete " Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifiedDate" Type="date" />
+          <Property Name="Subject_Description" Type="varchar(max)" />
+          <Property Name="Publisher_Id" Type="int" />
+          <Property Name="Author_Id" Type="int" />
+        </EntityType>
+        <Association Name="FK_Emp_BPS_ToBasicPay">
+          <End Role="Emp_Basic_Pay" Type="Self.Emp_Basic_Pay" Multiplicity="0..1" />
+          <End Role="Emp_BPS" Type="Self.Emp_BPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Basic_Pay">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_BPS">
+              <PropertyRef Name="Emp_BPS_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_BPS_ToEmployee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Emp_BPS" Type="Self.Emp_BPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_BPS">
+              <PropertyRef Name="Emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Category_ToCategory">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Emp_Category" Type="Self.Emp_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Category">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Category_ToEmployee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Emp_Category" Type="Self.Emp_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Category">
+              <PropertyRef Name="Emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Designation_ToDesignation">
+          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="Emp_Designation" Type="Self.Emp_Designation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Designation">
+              <PropertyRef Name="Designation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Designation_ToEmployee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Emp_Designation" Type="Self.Emp_Designation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Designation">
+              <PropertyRef Name="Emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Emergency_ToRelationship">
+          <End Role="Emp_Emergency_Contact" Type="Self.Emp_Emergency_Contact" Multiplicity="1" />
+          <End Role="Emp_Emergency" Type="Self.Emp_Emergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Emergency_Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Emergency">
+              <PropertyRef Name="Emp_Relationship_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ToEducation">
+          <End Role="Emp_Education" Type="Self.Emp_Education" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Education">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Emp_Edu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ToEmergency">
+          <End Role="Emp_Emergency" Type="Self.Emp_Emergency" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Emergency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Emp_Emergency_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject_ToAuthor">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="Author_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject_ToPublisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="Publisher_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OprdbModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_Basic_Pay" EntityType="Self.Emp_Basic_Pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_BPS" EntityType="Self.Emp_BPS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_Category" EntityType="Self.Emp_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_Designation" EntityType="Self.Emp_Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_Education" EntityType="Self.Emp_Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_Emergency" EntityType="Self.Emp_Emergency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emp_Emergency_Contact" EntityType="Self.Emp_Emergency_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Emp_BPS_ToBasicPay" Association="Self.FK_Emp_BPS_ToBasicPay">
+            <End Role="Emp_Basic_Pay" EntitySet="Emp_Basic_Pay" />
+            <End Role="Emp_BPS" EntitySet="Emp_BPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_BPS_ToEmployee" Association="Self.FK_Emp_BPS_ToEmployee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Emp_BPS" EntitySet="Emp_BPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Category_ToCategory" Association="Self.FK_Emp_Category_ToCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Emp_Category" EntitySet="Emp_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Category_ToEmployee" Association="Self.FK_Emp_Category_ToEmployee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Emp_Category" EntitySet="Emp_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Designation_ToDesignation" Association="Self.FK_Emp_Designation_ToDesignation">
+            <End Role="Designation" EntitySet="Designation" />
+            <End Role="Emp_Designation" EntitySet="Emp_Designation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Designation_ToEmployee" Association="Self.FK_Emp_Designation_ToEmployee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Emp_Designation" EntitySet="Emp_Designation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Emergency_ToRelationship" Association="Self.FK_Emp_Emergency_ToRelationship">
+            <End Role="Emp_Emergency_Contact" EntitySet="Emp_Emergency_Contact" />
+            <End Role="Emp_Emergency" EntitySet="Emp_Emergency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ToEducation" Association="Self.FK_Employee_ToEducation">
+            <End Role="Emp_Education" EntitySet="Emp_Education" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ToEmergency" Association="Self.FK_Employee_ToEmergency">
+            <End Role="Emp_Emergency" EntitySet="Emp_Emergency" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject_ToAuthor" Association="Self.FK_Subject_ToAuthor">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject_ToPublisher" Association="Self.FK_Subject_ToPublisher">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OprdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OprEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="OprdbModel.Author" />
+          <EntitySet Name="Publishers" EntityType="OprdbModel.Publisher" />
+          <EntitySet Name="Subjects" EntityType="OprdbModel.Subject" />
+          <AssociationSet Name="FK_Subject_ToAuthor" Association="OprdbModel.FK_Subject_ToAuthor">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject_ToPublisher" Association="OprdbModel.FK_Subject_ToPublisher">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <EntitySet Name="Emp_Education" EntityType="OprdbModel.Emp_Education" />
+          <EntitySet Name="Emp_Emergency" EntityType="OprdbModel.Emp_Emergency" />
+          <EntitySet Name="Emp_Emergency_Contact" EntityType="OprdbModel.Emp_Emergency_Contact" />
+          <EntitySet Name="Employees" EntityType="OprdbModel.Employee" />
+          <AssociationSet Name="FK_Employee_ToEducation" Association="OprdbModel.FK_Employee_ToEducation">
+            <End Role="Emp_Education" EntitySet="Emp_Education" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Emergency_ToRelationship" Association="OprdbModel.FK_Emp_Emergency_ToRelationship">
+            <End Role="Emp_Emergency_Contact" EntitySet="Emp_Emergency_Contact" />
+            <End Role="Emp_Emergency" EntitySet="Emp_Emergency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ToEmergency" Association="OprdbModel.FK_Employee_ToEmergency">
+            <End Role="Emp_Emergency" EntitySet="Emp_Emergency" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="OprdbModel.Category" />
+          <EntitySet Name="Designations" EntityType="OprdbModel.Designation" />
+          <EntitySet Name="Emp_Basic_Pay" EntityType="OprdbModel.Emp_Basic_Pay" />
+          <EntitySet Name="Emp_BPS" EntityType="OprdbModel.Emp_BPS" />
+          <EntitySet Name="Emp_Category" EntityType="OprdbModel.Emp_Category" />
+          <EntitySet Name="Emp_Designation" EntityType="OprdbModel.Emp_Designation" />
+          <AssociationSet Name="FK_Emp_Category_ToCategory" Association="OprdbModel.FK_Emp_Category_ToCategory">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Emp_Category" EntitySet="Emp_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Designation_ToDesignation" Association="OprdbModel.FK_Emp_Designation_ToDesignation">
+            <End Role="Designation" EntitySet="Designations" />
+            <End Role="Emp_Designation" EntitySet="Emp_Designation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_BPS_ToBasicPay" Association="OprdbModel.FK_Emp_BPS_ToBasicPay">
+            <End Role="Emp_Basic_Pay" EntitySet="Emp_Basic_Pay" />
+            <End Role="Emp_BPS" EntitySet="Emp_BPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_BPS_ToEmployee" Association="OprdbModel.FK_Emp_BPS_ToEmployee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Emp_BPS" EntitySet="Emp_BPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Category_ToEmployee" Association="OprdbModel.FK_Emp_Category_ToEmployee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Emp_Category" EntitySet="Emp_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Designation_ToEmployee" Association="OprdbModel.FK_Emp_Designation_ToEmployee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Emp_Designation" EntitySet="Emp_Designation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Author_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Author_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Author_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Author_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Subjects" Relationship="OprdbModel.FK_Subject_ToAuthor" FromRole="Author" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Publisher_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher_FullAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher_Reg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Subjects" Relationship="OprdbModel.FK_Subject_ToPublisher" FromRole="Publisher" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Subject_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher_Id" Type="Int32" />
+          <Property Name="Author_Id" Type="Int32" />
+          <NavigationProperty Name="Author" Relationship="OprdbModel.FK_Subject_ToAuthor" FromRole="Subject" ToRole="Author" />
+          <NavigationProperty Name="Publisher" Relationship="OprdbModel.FK_Subject_ToPublisher" FromRole="Subject" ToRole="Publisher" />
+        </EntityType>
+        <Association Name="FK_Subject_ToAuthor">
+          <End Type="OprdbModel.Author" Role="Author" Multiplicity="0..1" />
+          <End Type="OprdbModel.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="Author_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject_ToPublisher">
+          <End Type="OprdbModel.Publisher" Role="Publisher" Multiplicity="0..1" />
+          <End Type="OprdbModel.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="Publisher_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Emp_Education">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Education_DegreeCertificate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Edu_BoardUniversity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Edu_Reg" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Edu_PassYear" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Edu_ObtainMarks" Type="Int32" Nullable="false" />
+          <Property Name="Emp_Edu_TotalMarks" Type="Int32" Nullable="false" />
+          <Property Name="Emp_Edu_Grade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Employees" Relationship="OprdbModel.FK_Employee_ToEducation" FromRole="Emp_Education" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Emp_Emergency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Emergency_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Relationship_Id" Type="Int32" Nullable="false" />
+          <Property Name="Emp_FullAddress_" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId_" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Emp_Emergency_Contact1" Relationship="OprdbModel.FK_Emp_Emergency_ToRelationship" FromRole="Emp_Emergency" ToRole="Emp_Emergency_Contact" />
+          <NavigationProperty Name="Employees" Relationship="OprdbModel.FK_Employee_ToEmergency" FromRole="Emp_Emergency" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Emp_Emergency_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Relationship_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Emp_Emergency" Relationship="OprdbModel.FK_Emp_Emergency_ToRelationship" FromRole="Emp_Emergency_Contact" ToRole="Emp_Emergency" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Full_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Father_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Dob" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Temporary_Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Permanent_Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Marital_Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_CNIC_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Citizenship" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Blood_Group" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Emergency_Id" Type="Int32" />
+          <Property Name="Emp_Edu_Id" Type="Int32" />
+          <Property Name="Emp_Jobs_Id" Type="Int32" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Emp_Education" Relationship="OprdbModel.FK_Employee_ToEducation" FromRole="Employee" ToRole="Emp_Education" />
+          <NavigationProperty Name="Emp_Emergency" Relationship="OprdbModel.FK_Employee_ToEmergency" FromRole="Employee" ToRole="Emp_Emergency" />
+          <NavigationProperty Name="Emp_BPS" Relationship="OprdbModel.FK_Emp_BPS_ToEmployee" FromRole="Employee" ToRole="Emp_BPS" />
+          <NavigationProperty Name="Emp_Category" Relationship="OprdbModel.FK_Emp_Category_ToEmployee" FromRole="Employee" ToRole="Emp_Category" />
+          <NavigationProperty Name="Emp_Designation" Relationship="OprdbModel.FK_Emp_Designation_ToEmployee" FromRole="Employee" ToRole="Emp_Designation" />
+        </EntityType>
+        <Association Name="FK_Employee_ToEducation">
+          <End Type="OprdbModel.Emp_Education" Role="Emp_Education" Multiplicity="0..1" />
+          <End Type="OprdbModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Education">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Emp_Edu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Emergency_ToRelationship">
+          <End Type="OprdbModel.Emp_Emergency_Contact" Role="Emp_Emergency_Contact" Multiplicity="1" />
+          <End Type="OprdbModel.Emp_Emergency" Role="Emp_Emergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Emergency_Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Emergency">
+              <PropertyRef Name="Emp_Relationship_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ToEmergency">
+          <End Type="OprdbModel.Emp_Emergency" Role="Emp_Emergency" Multiplicity="0..1" />
+          <End Type="OprdbModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Emergency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Emp_Emergency_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Category_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Emp_Category" Relationship="OprdbModel.FK_Emp_Category_ToCategory" FromRole="Category" ToRole="Emp_Category" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Emp_Designation1" Relationship="OprdbModel.FK_Emp_Designation_ToDesignation" FromRole="Designation" ToRole="Emp_Designation" />
+        </EntityType>
+        <EntityType Name="Emp_Basic_Pay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Salary_BasicPay" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Emp_Salary_House_Allowance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Emp_Salary_Medical" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Emp_Salary_Bonus" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Emp_Salary_Paydate" Type="DateTime" Precision="0" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Emp_Salary_PayType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Emp_BPS" Relationship="OprdbModel.FK_Emp_BPS_ToBasicPay" FromRole="Emp_Basic_Pay" ToRole="Emp_BPS" />
+        </EntityType>
+        <EntityType Name="Emp_BPS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Id" Type="Int32" />
+          <Property Name="Emp_BPS_Id" Type="Int32" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Emp_Basic_Pay" Relationship="OprdbModel.FK_Emp_BPS_ToBasicPay" FromRole="Emp_BPS" ToRole="Emp_Basic_Pay" />
+          <NavigationProperty Name="Employee" Relationship="OprdbModel.FK_Emp_BPS_ToEmployee" FromRole="Emp_BPS" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Emp_Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Emp_Id" Type="Int32" />
+          <Property Name="Category_Id" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="OprdbModel.FK_Emp_Category_ToCategory" FromRole="Emp_Category" ToRole="Category" />
+          <NavigationProperty Name="Employee" Relationship="OprdbModel.FK_Emp_Category_ToEmployee" FromRole="Emp_Category" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Emp_Designation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Id" Type="Int32" />
+          <Property Name="Designation_Id" Type="Int32" />
+          <Property Name="IsDelete_" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Designation" Relationship="OprdbModel.FK_Emp_Designation_ToDesignation" FromRole="Emp_Designation" ToRole="Designation" />
+          <NavigationProperty Name="Employee" Relationship="OprdbModel.FK_Emp_Designation_ToEmployee" FromRole="Emp_Designation" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Emp_Category_ToCategory">
+          <End Type="OprdbModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="OprdbModel.Emp_Category" Role="Emp_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Category">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Designation_ToDesignation">
+          <End Type="OprdbModel.Designation" Role="Designation" Multiplicity="0..1" />
+          <End Type="OprdbModel.Emp_Designation" Role="Emp_Designation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Designation">
+              <PropertyRef Name="Designation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_BPS_ToBasicPay">
+          <End Type="OprdbModel.Emp_Basic_Pay" Role="Emp_Basic_Pay" Multiplicity="0..1" />
+          <End Type="OprdbModel.Emp_BPS" Role="Emp_BPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp_Basic_Pay">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_BPS">
+              <PropertyRef Name="Emp_BPS_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_BPS_ToEmployee">
+          <End Type="OprdbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="OprdbModel.Emp_BPS" Role="Emp_BPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_BPS">
+              <PropertyRef Name="Emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Category_ToEmployee">
+          <End Type="OprdbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="OprdbModel.Emp_Category" Role="Emp_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Category">
+              <PropertyRef Name="Emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Designation_ToEmployee">
+          <End Type="OprdbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="OprdbModel.Emp_Designation" Role="Emp_Designation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emp_Designation">
+              <PropertyRef Name="Emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OprdbModelStoreContainer" CdmEntityContainer="OprEntities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="OprdbModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Author_Address" ColumnName="Author_Address" />
+                <ScalarProperty Name="Author_Email" ColumnName="Author_Email" />
+                <ScalarProperty Name="Author_Contact" ColumnName="Author_Contact" />
+                <ScalarProperty Name="Author_Name" ColumnName="Author_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishers">
+            <EntityTypeMapping TypeName="OprdbModel.Publisher">
+              <MappingFragment StoreEntitySet="Publisher">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Publisher_Reg" ColumnName="Publisher_Reg" />
+                <ScalarProperty Name="Publisher_Email" ColumnName="Publisher_Email" />
+                <ScalarProperty Name="Publisher_FullAddress" ColumnName="Publisher_FullAddress" />
+                <ScalarProperty Name="Publisher_Contact" ColumnName="Publisher_Contact" />
+                <ScalarProperty Name="Publisher_name" ColumnName="Publisher_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="OprdbModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="Author_Id" ColumnName="Author_Id" />
+                <ScalarProperty Name="Publisher_Id" ColumnName="Publisher_Id" />
+                <ScalarProperty Name="Subject_Description" ColumnName="Subject_Description" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Subject_Name" ColumnName="Subject_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_Education">
+            <EntityTypeMapping TypeName="OprdbModel.Emp_Education">
+              <MappingFragment StoreEntitySet="Emp_Education">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Emp_Edu_Grade" ColumnName="Emp_Edu_Grade" />
+                <ScalarProperty Name="Emp_Edu_TotalMarks" ColumnName="Emp_Edu_TotalMarks" />
+                <ScalarProperty Name="Emp_Edu_ObtainMarks" ColumnName="Emp_Edu_ObtainMarks" />
+                <ScalarProperty Name="Emp_Edu_PassYear" ColumnName="Emp_Edu_PassYear" />
+                <ScalarProperty Name="Emp_Edu_Reg" ColumnName="Emp_Edu_Reg" />
+                <ScalarProperty Name="Emp_Edu_BoardUniversity" ColumnName="Emp_Edu_BoardUniversity" />
+                <ScalarProperty Name="Emp_Education_DegreeCertificate" ColumnName="Emp_Education_DegreeCertificate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_Emergency">
+            <EntityTypeMapping TypeName="OprdbModel.Emp_Emergency">
+              <MappingFragment StoreEntitySet="Emp_Emergency">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UserId_" ColumnName="UserId " />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Emp_FullAddress_" ColumnName="Emp_FullAddress " />
+                <ScalarProperty Name="Emp_Relationship_Id" ColumnName="Emp_Relationship_Id" />
+                <ScalarProperty Name="Emp_Emergency_Contact" ColumnName="Emp_Emergency_Contact" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_Emergency_Contact">
+            <EntityTypeMapping TypeName="OprdbModel.Emp_Emergency_Contact">
+              <MappingFragment StoreEntitySet="Emp_Emergency_Contact">
+                <ScalarProperty Name="Emp_Relationship_Name" ColumnName="Emp_Relationship_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="OprdbModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Emp_Jobs_Id" ColumnName="Emp_Jobs_Id" />
+                <ScalarProperty Name="Emp_Edu_Id" ColumnName="Emp_Edu_Id" />
+                <ScalarProperty Name="Emp_Emergency_Id" ColumnName="Emp_Emergency_Id" />
+                <ScalarProperty Name="Emp_Blood_Group" ColumnName="Emp_Blood_Group" />
+                <ScalarProperty Name="Emp_Citizenship" ColumnName="Emp_Citizenship" />
+                <ScalarProperty Name="Emp_CNIC_" ColumnName="Emp_CNIC " />
+                <ScalarProperty Name="Emp_Marital_Status" ColumnName="Emp_Marital_Status" />
+                <ScalarProperty Name="Emp_Permanent_Address" ColumnName="Emp_Permanent_Address" />
+                <ScalarProperty Name="Emp_Temporary_Address" ColumnName="Emp_Temporary_Address" />
+                <ScalarProperty Name="Emp_Contact" ColumnName="Emp_Contact" />
+                <ScalarProperty Name="Emp_Gender" ColumnName="Emp_Gender" />
+                <ScalarProperty Name="Emp_Dob" ColumnName="Emp_Dob" />
+                <ScalarProperty Name="Emp_Father_Name" ColumnName="Emp_Father_Name" />
+                <ScalarProperty Name="Emp_Full_Name" ColumnName="Emp_Full_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="OprdbModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="OprdbModel.Designation">
+              <MappingFragment StoreEntitySet="Designation">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Emp_Designation" ColumnName="Emp_Designation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_Basic_Pay">
+            <EntityTypeMapping TypeName="OprdbModel.Emp_Basic_Pay">
+              <MappingFragment StoreEntitySet="Emp_Basic_Pay">
+                <ScalarProperty Name="Emp_Salary_PayType" ColumnName="Emp_Salary_PayType" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Emp_Salary_Paydate" ColumnName="Emp_Salary_Paydate" />
+                <ScalarProperty Name="Emp_Salary_Bonus" ColumnName="Emp_Salary_Bonus" />
+                <ScalarProperty Name="Emp_Salary_Medical" ColumnName="Emp_Salary_Medical" />
+                <ScalarProperty Name="Emp_Salary_House_Allowance" ColumnName="Emp_Salary_House_Allowance" />
+                <ScalarProperty Name="Emp_Salary_BasicPay" ColumnName="Emp_Salary_BasicPay" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_BPS">
+            <EntityTypeMapping TypeName="OprdbModel.Emp_BPS">
+              <MappingFragment StoreEntitySet="Emp_BPS">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Emp_BPS_Id" ColumnName="Emp_BPS_Id" />
+                <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_Category">
+            <EntityTypeMapping TypeName="OprdbModel.Emp_Category">
+              <MappingFragment StoreEntitySet="Emp_Category">
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emp_Designation">
+            <EntityTypeMapping TypeName="OprdbModel.Emp_Designation">
+              <MappingFragment StoreEntitySet="Emp_Designation">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete_" ColumnName="IsDelete " />
+                <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+                <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
